@@ -2,7 +2,7 @@ package inventory.supplier;
 
 import inventory.Inventory;
 
-public class RegularSupply implements Supplier{
+public class LowNumberSupplier implements Supplier{
     @Override
     public void replenishReserves(Inventory inventory) {
         String name = inventory.getProductName();
@@ -10,10 +10,10 @@ public class RegularSupply implements Supplier{
 
         switch (name){
             case "cucumber":
-                inventory.setQuantity(quantity+100);
+                inventory.setQuantity(quantity+600);
                 break;
             case "potato":
-                inventory.setQuantity(quantity+150);
+                inventory.setQuantity(quantity+450);
                 break;
             default:
                 inventory.setQuantity(0);

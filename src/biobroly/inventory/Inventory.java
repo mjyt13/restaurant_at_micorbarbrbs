@@ -1,7 +1,7 @@
 package inventory;
 
-import inventory.supplier.LowNumberSupply;
-import inventory.supplier.RegularSupply;
+import inventory.supplier.LowNumberSupplier;
+import inventory.supplier.RegularSupplier;
 import inventory.supplier.Supplier;
 public class Inventory{
     private String productName;
@@ -21,8 +21,8 @@ public class Inventory{
 
 
     public void checkAndReplenish(){
-        if (quantity <= lowQuantity) supplier = new LowNumberSupply();
-        else supplier = new RegularSupply();
+        if (quantity <= lowQuantity) supplier = new LowNumberSupplier();
+        else supplier = new RegularSupplier();
         supplier.replenishReserves(this);
     }
 }
