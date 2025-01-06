@@ -19,7 +19,6 @@ public class Inventory{
     public void setQuantity(int quantity){this.quantity = quantity;}
     public int getQuantity(){return quantity;}
 
-
     public void checkAndReplenish(){
         if (quantity <= lowQuantity) supplier = new LowNumberSupplier();
         else supplier = new RegularSupplier();

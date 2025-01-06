@@ -1,13 +1,15 @@
 package employee;
 
 import inventory.Inventory;
-import java.util.ArrayList;
+import inventory.Stash;
+
+import java.util.List;
 
 public class Manager extends Role{
-    public static ArrayList<Inventory> Stash = new ArrayList<>();
+    public List<Inventory> stash = Stash.stash;
 
     private void replenish(){
-        for(Inventory inventory: Stash){
+        for(Inventory inventory: stash){
             inventory.checkAndReplenish();
         }
     }
