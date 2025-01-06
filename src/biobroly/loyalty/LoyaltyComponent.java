@@ -11,6 +11,10 @@ public class LoyaltyComponent {
         this.pointBalance = 0;
     }
 
+    public LoyaltyComponent(){
+
+    }
+
     public void accurePoints(int points) {
         pointBalance += points;
     }
