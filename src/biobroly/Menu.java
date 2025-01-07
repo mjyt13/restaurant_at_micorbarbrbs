@@ -31,7 +31,7 @@ public class Menu {
         System.out.println("Сегодняшнее меню:");
         int num = 1;
         for (Dish dish: menu){
-            System.out.println(num+". "+dish.getName()+" ,"+dish.getCost()+" денег");
+            System.out.println(num+". "+dish.getName()+", "+dish.getCost()+" денег");
             num++;
         }
         System.out.println();

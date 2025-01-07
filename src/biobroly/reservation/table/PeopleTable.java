@@ -1,6 +1,6 @@
 package reservation.table;
 
-public class PeopleTable extends Table{
+public class PeopleTable implements Table{
     @Override
     public void printTable() {
         System.out.println("уэвэвэ?)))");

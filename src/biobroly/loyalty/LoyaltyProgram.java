@@ -11,18 +11,21 @@ public class LoyaltyProgram extends LoyaltyComponent {
         components = new ArrayList<LoyaltyComponent>();
     }
 
-    public void add(LoyaltyComponent client) {
-        components.add(client);
+    public void add(LoyaltyComponent component) {
+        components.add(component);
     }
 
-    public void remove(LoyaltyComponent client) {
-        components.remove(client);
+    public void remove(LoyaltyComponent component) {
+        components.remove(component);
     }
 
     public List<LoyaltyComponent> getComponents() {
         return components;
     }
 
+    public LoyaltyComponent getChild(int index){
+        return components.get(index);
+    }
     @Override
     public void accurePoints(int points) {
         if(components.size() > 0){

@@ -33,6 +33,7 @@ public class Order {
         dishes.remove(dish);
         sum -= dish.getCost();
     }
+    public Date getCreationTime(){return creationTime;}
 
     public double getSum(){return sum;}
 
