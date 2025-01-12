@@ -46,7 +46,7 @@ public class Employee {
 
     public void handleRequest(String request) {
         if (!role.work(request)) {
-            System.out.println(name + " не может " + request + "\nПусть выполнит" + nextEmployee);
+            System.out.println(name + " не может " + request + "\tПусть выполнит " + nextEmployee.getName());
             if (nextEmployee != null) nextEmployee.handleRequest(request);
             else System.out.println("HACPAHO");
         } else System.out.println(name + " дело сделал");

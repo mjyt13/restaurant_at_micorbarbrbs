@@ -5,13 +5,11 @@ import inventory.Stash;
 
 public class Manager extends Role{
 
-    private Stash stash;
-
-    public Manager(Stash stash){
+    /*public Manager(Stash stash){
         this.stash = stash;
-    }
+    }*/
     private void replenish(){
-        for(Inventory inventory: stash.getStash()){
+        for(Inventory inventory: Stash.getInstance().getStash()){
             inventory.checkAndReplenish();
         }
     }

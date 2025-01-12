@@ -30,6 +30,30 @@ public class RegularSupplier implements Supplier{
             case "herring":
                 inventory.setQuantity(quantity+80);
                 break;
+            case "pepper":
+                inventory.setQuantity(quantity+30);
+                break;
+            case "onion":
+                inventory.setQuantity(quantity+45);
+                break;
+            case "lemon":
+                inventory.setQuantity(quantity+5);
+                break;
+            case "eggplant":
+                inventory.setQuantity(quantity+10);
+                break;
+            case "squash":
+                inventory.setQuantity(quantity+8);
+                break;
+            case "mushroom":
+                inventory.setQuantity(quantity+60);
+                break;
+            case "garlic":
+                inventory.setQuantity(quantity+8);
+                break;
+            case "tomato_cherry":
+                inventory.setQuantity(quantity+40);
+                break;
             default:
                 inventory.setQuantity(0);
                 break;

@@ -1,3 +1,5 @@
+package menu;
+
 import dish.Dish;
 
 import java.util.ArrayList;
@@ -28,12 +30,17 @@ public class Menu {
     }
 
     public void showMenu(){
-        System.out.println("Сегодняшнее меню:");
-        int num = 1;
-        for (Dish dish: menu){
-            System.out.println(num+". "+dish.getName()+", "+dish.getCost()+" денег");
-            num++;
+        if(menu.size()==0){
+            System.out.println("Сегодня ничего нет:");
+        }else {
+            System.out.println("Сегодняшнее меню:");
+            int num = 1;
+            for (Dish dish: menu){
+                System.out.println(num+". "+dish.getName()+", "+dish.getCost()+" денег");
+                num++;
+            }
         }
         System.out.println();
+
     }
 }
