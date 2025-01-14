@@ -1,17 +1,29 @@
 package employee;
 
-import client.Client;
+import menu.Menu;
 import order.Observer;
 
 public class Waiter extends Role implements Observer {
-    private Client client;
-
-    public void setClient(Client client){
-        this.client = client;
+    private void showMenu(){
+        Menu.getInstance().showMenu();
+    }
+    private void sayReady(){
+        System.out.println("Заказ клиента "+client.getName()+" готов");
     }
     @Override
     public boolean work(String request){
-        return true;
+        switch (request){
+            case "start_service":
+                return true;
+            case "show_menu":
+                showMenu();
+                return true;
+            case "say_ready":
+                sayReady();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override

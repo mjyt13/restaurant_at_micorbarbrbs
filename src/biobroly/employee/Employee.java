@@ -1,11 +1,14 @@
 package employee;
 
+import order.Order;
+
 import java.lang.String;
 
 public class Employee {
 
     protected String name;
     protected Role role;
+    protected Order order;
     protected String experience;
     protected Employee nextEmployee;
 

@@ -1,21 +1,31 @@
-import dish.Dish;
+import client.Client;
 import employee.Chef;
 import employee.Employee;
 import employee.Manager;
 import employee.Waiter;
 import inventory.Inventory;
 import inventory.Stash;
+import loyalty.LoyaltyCard;
+import loyalty.LoyaltyProgram;
 import menu.Menu;
-
-import java.util.List;
+import order.Order;
+import payment.method.Card;
+import payment.method.Cash;
+import payment.method.OnlinePayment;
 
 public class Main {
     public static void main(String[] args) {
 //       сначала создаются объекты, которые будут изменяться меньше всего
 
+        LoyaltyProgram globalLoyaltyProgram =new LoyaltyProgram();
+
         Chef chef = new Chef();
         Waiter waiter = new Waiter();
         Manager manager = new Manager();
+
+        OnlinePayment onlinePayment = new OnlinePayment();
+        Card card = new Card();
+        Cash cash = new Cash();
 
 //        создание рецптов и блюд(upd 11.01: перенесено в отдельный класс DishBook)
 
@@ -30,11 +40,11 @@ public class Main {
         Manacle.handleRequest("declare_menu");
 
         Menu.getInstance().showMenu();
-
+/*
         List<Dish> shiski = Menu.getInstance().getMenu();
         for (Dish dish2: shiski){
             System.out.println(dish2.getRecipe());
-        }
+        }*/
 //        пока не получается в классе Stash добавить продуктов, так что будет их объявление происходить здесь
 //        upd: Stash теперь нестатичный класс, всё по классике
         Stash.getInstance().viewStash();
@@ -78,5 +88,18 @@ public class Main {
 
         Manacle.handleRequest("declare_menu");
         Menu.getInstance().showMenu();
+
+        Client suhochini = new Client("suhochini");
+        LoyaltyCard suhochiniCard = new LoyaltyCard(suhochini);
+        globalLoyaltyProgram.add(suhochiniCard);
+        suhochini.callWaiter(Satana);
+
+        Order order = new Order();
+        order.subscribe(suhochini);
+        order.subscribe(waiter); //сомневаюсь, что так и должно быть
+        order.addDish(Menu.getInstance().getMenu().get(1));
+        order.addDish(Menu.getInstance().getMenu().get(0));
+        order.setPayment(cash);
+        suhochini.createOrder(order);
     }
 }

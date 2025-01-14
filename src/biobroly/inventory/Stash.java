@@ -16,9 +16,6 @@ public class Stash {
         }
         return instance;
     }
-    /*public Stash(){
-        stash = new ArrayList<Inventory>();
-    }*/
     public ArrayList<Inventory> getStash() {
         return stash;
     }
