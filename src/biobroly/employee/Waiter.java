@@ -30,8 +30,10 @@ public class Waiter extends Role implements Observer {
     public void update(String status){
         if (status.equals("Создание заказа")){
             client.setOrderStatus(status);
-        } else if (status.equals("готовится")) {
-            client.setOrderStatus(status);
+        } else if (status.equals("Готов")) {
+            System.out.println("Заказ клиента "+client.getName()+" готов");
+        }else if (status.equals("Неполный")) {
+            System.out.println("Заказ клиента "+client.getName()+" готов в максимально возможной мере");
         }
     }
 }

@@ -13,9 +13,12 @@ public class Chef extends Role{
     private void cook(){
         List<Inventory> resources = Stash.getInstance().getStash();
         String status = "Пустой";
+        int cooked = 0;
         for (Dish dish: getClient().getOrder().getDishes()){
             if (checkResourcesForDish(dish,resources)) {
+                consumeResourcesForDish(dish,resources);
                 System.out.println(dish.getName()+" готово");
+                cooked++;
                 client.getOrder().setStatus("В процессе готовки");
             }else {
                 System.out.println(dish.getName()+" приготовить невозможно");
@@ -23,9 +26,15 @@ public class Chef extends Role{
                 status = "неполный";
             }
         }
-        if (status!= "неполный"){
-            client.getOrder().setStatus("Готов");
+        if(cooked == 0){
+            client.getOrder().setStatus("Пустой");
         }
+        if (status != "неполный"){
+            client.getOrder().setStatus("Готов");
+        }else {
+            client.getOrder().setStatus("Неполный");
+        }
+
     }
 
     private void declareMenu(){

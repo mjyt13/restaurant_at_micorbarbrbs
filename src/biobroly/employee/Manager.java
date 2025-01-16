@@ -5,13 +5,14 @@ import inventory.Stash;
 
 public class Manager extends Role{
 
-    /*public Manager(Stash stash){
-        this.stash = stash;
-    }*/
     private void replenish(){
         for(Inventory inventory: Stash.getInstance().getStash()){
             inventory.checkAndReplenish();
         }
+    }
+
+    private void makeReport(){
+        saleReport.makeReport();
     }
 
     @Override
@@ -20,6 +21,8 @@ public class Manager extends Role{
             case "replenish":
                 replenish();
                 return true;
+            case "make_report":
+                makeReport();
             default:
                 return false;
         }
